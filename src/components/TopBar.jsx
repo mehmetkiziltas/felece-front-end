@@ -9,9 +9,9 @@ import './topbar.css'
 const TopBar = () => {
 
     const { username, isLoggedIn, email } = useSelector(store => ({
-        isLoggedIn: store.isLoggedIn,
-        username: store.username,
-        email: store.email,
+        isLoggedIn: store.auth.isLoggedIn,
+        username: store.auth.userName,
+        email: store.auth.email
     }));
 
     const menuArea = useRef(null)
@@ -67,7 +67,7 @@ const TopBar = () => {
                 <ul className="navbar-nav ml-auto" ref={menuArea}>
                     <li className="nav-item dropdown">
                         <div className="d-flex" style={{ cursor: 'pointer' }} onClick={() => setMenuVisible(true)}>
-                            <span className="nav-link dropdown-toggle">{email}</span>
+                            <span className="nav-link dropdown-toggle">{username}</span>
                         </div>
                         <div className={dropDownClass}>
                             <Link className="dropdown-item d-flex p-2" to={`/user/${username}`} onClick={() => setMenuVisible(false)}>

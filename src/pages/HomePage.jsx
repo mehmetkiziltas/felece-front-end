@@ -88,9 +88,9 @@ const HomePage = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        from: state.bus.fromDirection,
-        to: state.bus.toDirection,
-        departureTime: state.bus.busDepartureTime,
+        from: state.busAndSeat.bus.fromDirection,
+        to: state.busAndSeat.bus.toDirection,
+        departureTime: state.busAndSeat.bus.busDepartureTime,
     }
 }
 

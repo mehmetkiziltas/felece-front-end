@@ -12,7 +12,8 @@ export const logout = () => {
     return axios.post('/api/1.0/logout');
 };
 
-export const setAuthorizationHeader = ({ isLoggedIn, token }) => {
+export const setAuthorizationHeader = (props) => {
+    const { isLoggedIn, token } = props.auth;
     if (isLoggedIn) {
         const authorizationHeaderValue = `Bearer ${token}`
         axios.defaults.headers['Authorization'] = authorizationHeaderValue;
@@ -38,5 +39,9 @@ export const getAllBus = () => {
 };
 
 export const getTicketsByBusId = (id) => {
-    return axios.post(`/api/v1/tickets/${id}`);
+    return axios.post(`/api/1.0/tickets/${id}`);
 };
+
+export const buyTicket = async (body) => {
+    return await axios.post(`/api/1.0/tickets/buy`, body);
+}

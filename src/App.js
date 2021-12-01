@@ -11,14 +11,14 @@ import Rotation from './pages/admin/Rotation';
 import Driver from './pages/admin/Driver';
 import Sidebar from './pages/sidebar/Sidebar';
 import SelectSeats from './pages/SelectSeats';
-
+import UserTicketPage from './pages/UserTicketPage';
 
 
 const App = () => {
 
   const { isLoggedIn, role } = useSelector(store => ({
-    isLoggedIn: store.isLoggedIn,
-    role: store.role
+    isLoggedIn: store.auth.isLoggedIn,
+    role: store.auth.role
   }));
 
   return (
@@ -31,6 +31,7 @@ const App = () => {
             <Route exact path="/signup" component={UserSignupPage} />
             {!isLoggedIn && <Route path="/login" component={LoginPage} />}
             <Route exact path="/select-seats" component={SelectSeats} />
+            <Route exact path="/userpage" component={UserTicketPage} />
             {role === 'ADMIN' && <Route exact path='/admin' component={AdminHome} />}
             {role === 'ADMIN' && <Route exact path='/admin/rotation' component={Rotation} />}
             {role === 'ADMIN' && <Route exact path='/admin/driver' component={Driver} />}

@@ -2,11 +2,10 @@ import * as ACTIONS from './Constants'
 import { login, logout, singup } from '../api/apiCalls';
 
 export const logoutSuccess = () => {
-    return async function(dispacth){
+    return async function (dispacth) {
         try {
             await logout();
         } catch (err) {
-            
         }
         dispacth({
             type: ACTIONS.LOGOUT_SUCCESS
@@ -37,8 +36,10 @@ export const loginHandler = (credentials) => {
             ...response.data.user,
             password: credentials.password,
             token: response.data.token,
-            role: response.data.role
+            role: response.data.role,
+            email: credentials.email
         }
+        console.log(authState);
         dispatch(loginSuccess(authState));
         return response;
     }

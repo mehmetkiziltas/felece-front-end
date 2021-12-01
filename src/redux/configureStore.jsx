@@ -5,6 +5,7 @@ import SecureLS from 'secure-ls';
 import thunk from 'redux-thunk';
 import { setAuthorizationHeader } from '../api/apiCalls';
 import busReducer from './busRedux/busReducer';
+import seatReducer from './seatRedux/seatReducer';
 
 const secureLS = new SecureLS();
 
@@ -20,21 +21,24 @@ const getStateFromStorage = () => {
     if (ticketAuth) {
         return ticketAuth;
     }
-    return stateInLS;
+    return (stateInLS);
 }
 
-const updateStateInStorage = newState => {
+const updateStateInStorage = (newState) => {
     secureLS.set('ticket-auth', newState);
 }
-
 
 const configureStore = () => {
     const initialState = getStateFromStorage();
     setAuthorizationHeader(initialState);
     const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+    const busAndSeatReducer = combineReducers({
+        bus: busReducer,
+        seat: seatReducer
+    });
     const rootReducer = combineReducers({
         auth: authReducer,
-        bus: busReducer
+        busAndSeat: busAndSeatReducer
     });
     const store = createStore(rootReducer, initialState, composeEnhancers(applyMiddleware(thunk)));
 

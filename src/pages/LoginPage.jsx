@@ -4,14 +4,6 @@ import ButtonWithProgress from '../components/ButtonWithProgress';
 import Input from '../components/Input';
 import { loginHandler } from '../redux/authActions'
 import { useApiProgress } from '../shared/ApiProgress';
-// import {
-//     AUTH_GET_PERMISSIONS,
-//     AUTH_LOGIN,
-//     AUTH_LOGOUT,
-//     AUTH_ERROR,
-//     AUTH_CHECK
-// } from 'react-admin';
-
 
 
 const LoginPage = (props) => {
