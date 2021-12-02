@@ -7,9 +7,7 @@ const SelectSeats = (props) => {
 
     const [bus, setBus] = useState();
     const [seats, setSeats] = useState([]);
-    const [selectedSeats, setSelectedSeats] = useState([]);
     const [tickets, setTickets] = useState([]);
-    const [user, setUser] = useState();
 
     const { fromDirection, toDirection, busDepartureTime, userEmail } = props;
 

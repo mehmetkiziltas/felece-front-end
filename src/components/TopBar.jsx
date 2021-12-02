@@ -8,10 +8,9 @@ import './topbar.css'
 
 const TopBar = () => {
 
-    const { username, isLoggedIn, email } = useSelector(store => ({
+    const { username, isLoggedIn } = useSelector(store => ({
         isLoggedIn: store.auth.isLoggedIn,
-        username: store.auth.userName,
-        email: store.auth.email
+        username: store.auth.userName
     }));
 
     const menuArea = useRef(null)
