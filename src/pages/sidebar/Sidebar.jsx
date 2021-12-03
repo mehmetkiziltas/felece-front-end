@@ -23,8 +23,8 @@ const Sidebar = () => {
                         </li>
                         <li className="sidebarListItem">
                             <TrendingUp className='sidebarIcon' />
-                            <Link to="/admin/driver">
-                                Driver
+                            <Link to="/admin/userlist">
+                                User List
                             </Link>
                         </li>
                     </ul>

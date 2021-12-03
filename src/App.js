@@ -8,12 +8,11 @@ import TopBar from './components/TopBar';
 import HomePage from './pages/HomePage';
 import AdminHome from './pages/admin/AdminHome';
 import Rotation from './pages/admin/Rotation';
-import Driver from './pages/admin/Driver';
 import Sidebar from './pages/sidebar/Sidebar';
 import SelectSeats from './pages/SelectSeats';
-import UserTicketPage from './pages/UserTicketPage';
 import UserProfile from './pages/UserProfile';
 import UpdateBus from './pages/admin/UpdateBus';
+import UserList from './pages/admin/UserList';
 
 
 const App = () => {
@@ -35,10 +34,9 @@ const App = () => {
             {!isLoggedIn && <Route path="/login" component={LoginPage} />}
             {isLoggedIn && <Route path={`/user/${username}`} component={UserProfile} />}
             <Route exact path="/select-seats" component={SelectSeats} />
-            <Route exact path="/userpage" component={UserTicketPage} />
             {role === 'ADMIN' && <Route exact path='/admin' component={AdminHome} />}
             {role === 'ADMIN' && <Route exact path='/admin/rotation' component={Rotation} />}
-            {role === 'ADMIN' && <Route exact path='/admin/driver' component={Driver} />}
+            {role === 'ADMIN' && <Route exact path='/admin/userlist' component={UserList} />}
             {role === 'ADMIN' && <Route exact path="/admin/updateBus/:busid"  component={UpdateBus}/>}
             <Redirect to="/" />
           </Switch>

@@ -1,15 +1,15 @@
 import axios from "axios"
 
-export const singup = body => {
-    return axios.post('/api/1.0/users/sign-up', body);
+export const singup =  async body => {
+    return await axios.post('/api/1.0/users/sign-up', body);
 }
 
-export const login = creds => {
-    return axios.post('/api/1.0/auth', creds);
+export const login = async creds => {
+    return await axios.post('/api/1.0/auth', creds);
 };
 
-export const logout = () => {
-    return axios.post('/api/1.0/logout');
+export const logout = async () => {
+    return await axios.post('/api/1.0/logout');
 };
 
 export const setAuthorizationHeader = (props) => {
@@ -22,24 +22,24 @@ export const setAuthorizationHeader = (props) => {
     }
 }
 
-export const getAllCity = () => {
-    return axios.get('/api/1.0/cities');
+export const getAllCity = async () => {
+    return await axios.get('/api/1.0/cities');
 };
 
-export const getBus = (body) => {
-    return axios.post('/api/1.0/buses/getbus', body);
+export const getBus = async (body) => {
+    return await axios.post('/api/1.0/buses/getbus', body);
 };
 
-export const createBus = (body) => {
-    return axios.post('/api/1.0/buses/create', body);
+export const createBus = async (body) => {
+    return await axios.post('/api/1.0/buses/create', body);
 };
 
-export const getAllBus = () => {
-    return axios.get('/api/1.0/buses/getAll');
+export const getAllBus = async () => {
+    return await axios.get('/api/1.0/buses/getAll');
 };
 
-export const getTicketsByBusId = (id) => {
-    return axios.post(`/api/1.0/tickets/${id}`);
+export const getTicketsByBusId = async (id) => {
+    return await axios.post(`/api/1.0/tickets/${id}`);
 };
 
 export const buyTicket = async (body) => {
@@ -68,4 +68,16 @@ export const updateBusById = async (id, body) => {
 
 export const deleteBusById = async (id) => {
     return await axios.delete(`/api/1.0/buses/delete/${id}`);
+}
+
+export const getAllUsers = async () => {
+    return await axios.get(`/api/1.0/users/getusers`);
+}
+
+export const updateUserByEmail = async (body) => {
+    return await axios.put(`/api/1.0/users/updateuser`, body);
+}
+
+export const deleteUserByEmail = async (body) => {
+    return await axios.post(`/api/1.0/users/deleteuser`, body);
 }

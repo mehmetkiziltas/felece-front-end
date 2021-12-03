@@ -24,7 +24,6 @@ const UserProfile = (props) => {
         const response = getTicketsByUserEmail(body);
         response.then(res => {
             setTickets(res.data)
-            console.log(res.data);
             tickets.map(ticket => {
                 if (ticket.ticketDate < new Date().toString()) {
                     return setPastTicket(pastTicket.concat(ticket))
@@ -147,7 +146,6 @@ const UserProfile = (props) => {
                                                     onChange={handleChange}
                                                     value={newDate}
                                                 />
-
                                             </>
                                         }
                                     </Modal.Footer>
